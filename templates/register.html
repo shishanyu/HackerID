@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HackerID de HackerGarage - Nuevo registro</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+	</head>
+	<body>
+
+		<h1>Nuevo registro</h1>
+		<p>Tu foto no puede ser un dibujo o ilustraci&oacute;n de ning&uacute;n tipo, ni salir con m&aacute;scaras o cualquier cosa que impida identificar tu rostro.</p>
+		<form action="index.php" method="post">
+			<label for="names">Nombre(s)</label><input type="text" placeholder="Nombre(s)" name="names" /><br>
+			<label for="lastname">Apellido Paterno</label><input type="text" placeholder="Apellido Paterno" name="lastname" /><br>
+			<label for="lastnamem">Apellido Materno</label><input type="text" placeholder="Apellido Materno" name="lastnamem" /><br>
+			<label for="cellphone">Celular</label><input type="text" placeholder="Celular" name="cellphone" /><br>
+			<label for="email">Correo</label><input type="text" placeholder="Correo" name="email" /><br>
+			<label for="password">Contrase&ntilde;a</label><input type="password" name="password" /><br>
+			<label for="picture">Fotograf&iacute;a</label><input type="file" name="picture" /><br>
+			<br>
+			<div class="g-recaptcha" data-sitekey="6Le_lx0TAAAAABDQ-mbF5aPRSXyJdzS2N5Qp9vGt"></div>
+			<input type="hidden" name="task" value="submitnew"/><br>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
