@@ -3,6 +3,7 @@
 	//Publicado bajo la GNU GENERAL PUBLIC LICENSE
 
 	$hackerid = isset($_REQUEST["hackerid"]);
+	$task = isset($_REQUEST["task"]);
 
 	if(!$hackerid){
 		include_once("welcome.html");
@@ -10,5 +11,7 @@
 	}
 
 	include_once("functions.php");
+
+
 
 ?>
