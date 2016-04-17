@@ -1,8 +1,11 @@
 <?php
-	$hackerid = $_REQUEST["hackerid"];
+	//Código escrito por Tony Cárdenas @shishanyu 2016
+	//Publicado bajo la GNU GENERAL PUBLIC LICENSE
 
-	if(!isset($hackerid)){
-		include_once("welcome.php");
+	$hackerid = isset($_REQUEST["hackerid"]);
+
+	if(!$hackerid){
+		include_once("welcome.html");
 		die();
 	}
 
