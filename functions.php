@@ -121,4 +121,37 @@
 			return $result;
 		}
 	}
+
+	class email {
+		public static function sendSystemMail($recipient,$title="",$message="",$name=""){
+			require_once './phpmailer/class.phpmailer.php';
+			require_once './phpmailer/class.smtp.php';
+			$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
+// 			$mail->IsSMTP(); // telling the class to use SMTP
+			try {
+				$sender = "no-reply@hackergarage.mx";
+				$senderName = "HackerID Bot";
+// 				$mail->Host       = "radio.bembahost.net"; // SMTP server
+				$mail->CharSet = 'UTF-8';
+/*
+				$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+				$mail->SMTPAuth   = true;                  // enable SMTP authentication
+				$mail->Port       = 587;                    // set the SMTP port for the GMAIL server
+				$mail->Username   = $sender; // SMTP account username
+				$mail->Password   = "";        // SMTP account password
+*/
+				$mail->AddReplyTo("$sender", 'HackerID Bot');
+				$mail->AddAddress("$recipient", "$name");
+				$mail->SetFrom("$sender", "$senderName");
+				$mail->Subject = "HackerID: $title";
+				$mail->AltBody = "$message"; // optional - MsgHTML will create an alternate automatically
+				$mail->MsgHTML($mail->AltBody);
+				$mail->Send();
+			} catch (phpmailerException $e) {
+				die($e->errorMessage());
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+		}
+	}
 ?>
