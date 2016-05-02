@@ -43,6 +43,13 @@
 			}
 			return $string;
 		}
+		public static function password ($string){
+			if(strlen($string) < 6){
+				die("Deben ser al menos 6 caracteres en la contraseña");
+				return false;
+			}
+			return $string;
+		}
 		public static function email ($string){
 			if (filter_var($string, FILTER_VALIDATE_EMAIL) === false){
 				die ("El correo no es válido");
@@ -50,11 +57,14 @@
 			}
 			return $string;
 		}
-		public static function name ($string){
+		public static function name ($string,$what="El nombre"){
 			$string = utf8_decode($string);
 			if (filter_var($string, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[^A-Za-z\s\p{L}]/")))){
-				die ("El nombre contiene caracteres no válidos");
+				die ("$what $string contiene caracteres no válidos");
 				return false;
+			}
+			if(strlen($string) < 2){
+				die ("$what contiene menos de 2 caracteres");
 			}
 			return $string;
 		}
